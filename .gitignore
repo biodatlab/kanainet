@@ -9,11 +9,14 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+checkpoints/
 develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
+evaluation_results/
+inference_results/
 lib/
 lib64/
 parts/
