@@ -21,10 +21,10 @@ from utils.metrics import SegmentationMetrics
 from torch.utils.data import Dataset, DataLoader, ConcatDataset
 
 # Default paths
-DEFAULT_ABLATION_RESULTS = './ablation_threshold_miccai.json'
-DEFAULT_CHECKPOINTS_DIR = './checkpoints/convnext_ablation_miccai'
-DEFAULT_SINGLE_CHECKPOINT = '/home/badboy-005/Desktop/uab-projects/KAN_models/checkpoints/convnext_ablation_miccai_0902_focal_loss/symmetric_4_blocks/best_model.pth'
-DEFAULT_DATA_ROOT = './data_unseen'
+DEFAULT_ABLATION_RESULTS = ''
+DEFAULT_CHECKPOINTS_DIR = ''
+DEFAULT_SINGLE_CHECKPOINT = ''
+DEFAULT_DATA_ROOT = ''
 
 
 class ExternalValidationDataset(Dataset):
