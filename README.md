@@ -119,7 +119,7 @@ Results will automatically be saved to:
 Evaluate all trained configurations from an ablation study:
 
 ```bash
-python inference_external_validation.py \
+python inference.py \
     --ablation_results path/to/ablation_results.json \
     --checkpoints_dir path/to/checkpoints/ \
     --data_root ./data_unseen
