@@ -33,10 +33,148 @@ We used the same training dataset as ESPNet. The dataset can be accessed from th
 
 You can use the default training configuration or modify the hyperparameters in `config.py`.
 
-### Train KAN-IANet
+### Train KAN-AINet
 
-To train KAN-IANet with the default configuration:
+To train KAN-AINet with the default configuration:
 
 ```bash
 python train_threshold.py --configs config.py
+```
+To download our KAN_IANet checkpoint, KAN_IANet, and baseline model without KAN blocks, please access via this Google Drive [link](https://drive.google.com/drive/folders/1xZ8GLnZm7hB3CpDiflIf6HW_iQdrgR2-?usp=sharing).
+
+## Inference on Unseen External Validation Dataset
+
+This script evaluates **KAN-AINet** on unseen external validation datasets.
+
+#### Evaluation Metrics
+
+The following metrics are reported: mDice, mIoU, Sα (S-measure), Fβ^w (Weighted F-measure), MAE, HD95, ASD, Precision, Recall, Specificity
+
+The script supports:
+
+- Single checkpoint evaluation
+- Full ablation study evaluation
+- Per-dataset evaluation
+- Combined evaluation
+- Automatic JSON result export
+
+---
+
+#### Dataset Structure
+
+Place unseen datasets inside:
+
+```
+data_unseen/
+ ├── Dataset1/
+ │    ├── images/
+ │    └── masks/
+ ├── Dataset2/
+ │    ├── images/
+ │    └── masks/
+```
+
+Or directly:
+
+```
+data_unseen/
+ ├── images/
+ └── masks/
+```
+
+Each dataset must contain:
+
+- `images/` → RGB images
+- `masks/` → Binary segmentation masks
+
+---
+
+#### 1. Single Checkpoint Evaluation (Recommended)
+
+Evaluate a single trained model:
+
+```bash
+python inference_external_validation.py \
+    --checkpoint path/to/best_model.pth \
+    --data_root ./data_unseen \
+    --batch_size 8
+```
+Optional Arguments
+
+```bash
+--threshold 0.5          # Override threshold
+--output results.json    # Custom output JSON file
+```
+
+Results will automatically be saved to:
+
+```
+./external_validation_result/
+```
+
+---
+
+#### 2. Ablation Study Evaluation (All Configurations)
+
+Evaluate all trained configurations from an ablation study:
+
+```bash
+python inference_external_validation.py \
+    --ablation_results path/to/ablation_results.json \
+    --checkpoints_dir path/to/checkpoints/ \
+    --data_root ./data_unseen
+```
+Optional Arguments
+
+```bash
+--include_baseline   # Include baseline_no_kan (default)
+--no_baseline        # Exclude baseline
+--batch_size 8
+--output results.json
+```
+
+The script will:
+
+- Load all configurations from the ablation results file
+- Automatically infer encoder and decoder KAN blocks
+- Evaluate each configuration
+- Print per-dataset results
+- Print combined results
+- Identify the best configuration (based on mDice)
+- Save complete results as JSON
+
+---
+
+#### Output Format
+
+The output JSON file contains:
+
+```json
+{
+  "data_root": "...",
+  "timestamp": "...",
+  "configurations": [
+    {
+      "config_name": "...",
+      "encoder_kan_blocks": [...],
+      "decoder_kan_blocks": [...],
+      "threshold": 0.4,
+      "external_validation": {
+        "per_dataset": {...},
+        "combined": {...}
+      }
+    }
+  ]
+}
+```
+
+---
+
+#### Notes
+
+- GPU is automatically used if available.
+- Threshold is loaded from checkpoint unless manually overridden.
+- All folders inside `data_root` that contain `images/` and `masks/` will be evaluated.
+- Metrics are computed using `SegmentationMetrics`.
+- Both per-dataset and combined results are reported.
 
