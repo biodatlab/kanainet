@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/KAN Architecture-cropped.svg", width="1200">
+  <img src="assets/KAN Architecture-cropped.svg", width="1000">
 </div>
 
 
@@ -11,18 +11,28 @@ KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-A
 ## 🔥 Highlights
 
 - **State-of-the-Art Performance**  
-  Achieves **XX% improvement in mDice** and **XX% improvement in mIoU** over prior SOTA models on external validation benchmarks:  
+  Achieves **4.99% improvement in mDice** and **5.07% improvement in mIoU** over prior SOTA 
+  models on external validation benchmarks:  
   `Kvasir-Sessile`, `CVC-ColonDB`, `ETIS-LaribPolypDB`, and `PolypGen-C6`.
 
 - **KAN-IMM (Illumination Modulation Module)**  
-  Learns adaptive per-channel scaling to effectively handle specular reflections, shadows, and varying illumination conditions in colonoscopy images.
+  Learns adaptive per-channel scaling to effectively handle specular reflections, shadows, 
+  and varying illumination conditions in colonoscopy images. Delivers consistent Dice 
+  improvements across all brightness conditions — dark (4.98%), medium (3.47%), and 
+  bright (5.06%) — with the greatest benefit under extreme illumination (p=0.037).
 
 - **KAN-BAM (Boundary Attention Module)**  
-  Utilizes multi-scale edge-aware attention (3×3, 5×5, 7×7 receptive fields) to accurately differentiate true polyp boundaries from illumination artifacts.
+  Utilizes multi-scale edge-aware attention (3×3, 5×5, 7×7 receptive fields) to accurately 
+  differentiate true polyp boundaries from illumination artifacts.
+
+- **Robust & Consistent Predictions**  
+  Brown-Forsythe variance testing confirms significantly lower prediction variance across all 
+  illumination conditions (overall ratio: 0.68, p<0.001), demonstrating stable and 
+  trustworthy performance across diverse clinical environments.
 
 - **Interpretable Learned Functions**  
-  KAN-based activation functions are directly visualizable, providing model interpretability.  
-  Notably, **98% of the learned functions are novel and task-specific**, demonstrating strong adaptation to polyp segmentation
+  KAN-based activation functions are directly visualizable, providing model interpretability 
+  and insight into how the network adapts its feature transformations to polyp segmentation.
 
 ***
 ## Model Performance Comparison with ESPNet
@@ -36,7 +46,7 @@ The table above presents a comprehensive comparison between **KAN-AINet** and **
 ### Example of KAN-AINet Segmentation Performance
 
 <div align="center">
-  <img src="assets/KAN_qualitative-cropped.svg", width="1200">
+  <img src="assets/KAN_qualitative-cropped.svg", width="1000">
 </div>
 
 ***
@@ -56,7 +66,6 @@ conda activate kan-ainet
 
 # Install dependencies
 pip install -r requirements.txt
-
 ```
 ## Training
 
@@ -230,13 +239,13 @@ The output JSON file contains:
 
 We evaluate illumination robustness of KAN-AINet against the baseline using per-image Dice scores.
 
-1️⃣ Brightness-Stratified Paired Comparison
+**1️⃣ Brightness-Stratified Paired Comparison**
 
 Images are divided into brightness tertiles: dark, medium, bright. Wilcoxon signed-rank test is applied per tertile
 
 Reports include mean Dice (KAN vs Baseline), mean difference, Cohen’s d, and p-value.
 
-2️⃣ Variance Ratio Test (Brown–Forsythe)
+**2️⃣ Variance Ratio Test (Brown–Forsythe)**
 
 Evaluates segmentation variability under different illumination, reporting dice variance per brightness bin and variance ratio.
 
