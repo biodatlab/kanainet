@@ -24,9 +24,13 @@ KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-A
   KAN-based activation functions are directly visualizable, providing model interpretability.  
   Notably, **98% of the learned functions are novel and task-specific**, demonstrating strong adaptation to polyp segmentation
 
-Examples of model segmentation performance
-
 ***
+## Model Performance compared to ESPNet
+
+
+
+### Example of KAN-AINet Segmentation Performance
+
 <div align="center">
   <img src="assets/KAN_qualitative-cropped.svg", width="1200">
 </div>
