@@ -28,7 +28,7 @@ KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-A
 ## Model Performance Comparison with ESPNet
 
 <p align="center">
-  <img src="assets/kan-ainet_table.pdf" width="1000">
+  <img src="assets/kan-ainet_table.png" width="750">
 </p>
 
 The table above presents a comprehensive comparison between **KAN-AINet** and **ESPNet** across seen and unseen datasets, including segmentation accuracy and boundary-based metrics.
