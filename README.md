@@ -1,3 +1,8 @@
+<div align="center">
+  <img src="assets/KAN Architecture-cropped.svg", width="1200">
+</div>
+
+
 ## KAN-AINet: Kolmogorov-Arnold Network with Adaptive Illumination Modulation for Generalizable Polyp Segmentation
 
 
@@ -18,6 +23,15 @@ KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-A
 - **Interpretable Learned Functions**  
   KAN-based activation functions are directly visualizable, providing model interpretability.  
   Notably, **98% of the learned functions are novel and task-specific**, demonstrating strong adaptation to polyp segmentation
+
+Examples of model segmentation performance
+
+***
+<div align="center">
+  <img src="assets/KAN_qualitative-cropped.svg", width="1200">
+</div>
+
+***
 
 ## Installation
 
