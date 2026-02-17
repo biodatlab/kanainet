@@ -11,19 +11,15 @@ KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-A
 ## 🔥 Highlights
 
 - **State-of-the-Art Performance**  
-  Achieves **4.99% improvement in mDice** and **5.07% improvement in mIoU** over prior SOTA 
-  models on external validation benchmarks:  
+  Improves mDice by 4.99% and mIoU by 5.07% over prior SOTA on external benchmarks:  
   `Kvasir-Sessile`, `CVC-ColonDB`, `ETIS-LaribPolypDB`, and `PolypGen-C6`.
 
 - **KAN-IMM (Illumination Modulation Module)**  
-  Learns adaptive per-channel scaling to effectively handle specular reflections, shadows, 
-  and varying illumination conditions in colonoscopy images. Delivers consistent Dice 
-  improvements across all brightness conditions — dark (4.98%), medium (3.47%), and 
-  bright (5.06%) — with the greatest benefit under extreme illumination (p=0.037).
+  Adaptive illumination modulation improves robustness under dark, medium, and bright conditions (largest gain under extreme lighting, p = 0.037).
 
 - **KAN-BAM (Boundary Attention Module)**  
   Utilizes multi-scale edge-aware attention (3×3, 5×5, 7×7 receptive fields) to accurately 
-  differentiate true polyp boundaries from illumination artifacts.
+  differentiate true polyp boundaries from illumination artifacts. Reduce HD95 and ASD by 33.7% and 42.95% over the variant without KAN
 
 - **Robust & Consistent Predictions**  
   Brown-Forsythe variance testing confirms significantly lower prediction variance across all 
