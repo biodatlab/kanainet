@@ -22,9 +22,19 @@ KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-A
 ## Installation
 
 ```bash
-git clone https://github.com//KAN-ACNet.git
-cd KAN-ACNet
+# Clone the repository
+git clone https://github.com//KAN-AINet.git
+cd KAN-AINet
+
+# Create a new conda environment (replace 3.10 with your preferred Python version)
+conda create -n kan-ainet python=3.10 -y
+
+# Activate the environment
+conda activate kan-ainet
+
+# Install dependencies
 pip install -r requirements.txt
+
 ```
 ## Training
 
@@ -38,9 +48,23 @@ You can use the default training configuration or modify the hyperparameters in 
 To train KAN-AINet with the default configuration:
 
 ```bash
-python train_threshold.py --configs config.py
+python train_threshold.py
 ```
-To download our KAN_IANet checkpoint, KAN_IANet, and baseline model without KAN blocks, please access via this Google Drive [link](https://drive.google.com/drive/folders/1xZ8GLnZm7hB3CpDiflIf6HW_iQdrgR2-?usp=sharing).
+
+Optional Arguments
+
+```bash
+--save_dir ./checkpoints/ablation_with_threshold
+# Base directory to save model checkpoints
+
+--log_dir ./logs/ablation_with_threshold
+# Base directory for training logs
+
+--output ./ablation_results_with_threshold.json
+# Output JSON file to store ablation + threshold tuning results
+```
+
+To download our KAN-IANet checkpoint, KAN-IANet, and baseline model without KAN blocks, please access via this Google Drive [link](https://drive.google.com/drive/folders/1xZ8GLnZm7hB3CpDiflIf6HW_iQdrgR2-?usp=sharing).
 
 ## Inference on Unseen External Validation Dataset
 
@@ -94,7 +118,7 @@ Each dataset must contain:
 Evaluate a single trained model:
 
 ```bash
-python inference_external_validation.py \
+python inference.py \
     --checkpoint path/to/best_model.pth \
     --data_root ./data_unseen \
     --batch_size 8
