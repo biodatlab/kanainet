@@ -30,18 +30,6 @@ KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-A
   KAN-based activation functions are directly visualizable, providing model interpretability 
   and insight into how the network adapts its feature transformations to polyp segmentation.
 
-## Predict an image
-
-To download our KAN-IANet checkpoint, please access via this Google Drive [link](https://drive.google.com/drive/folders/1xZ8GLnZm7hB3CpDiflIf6HW_iQdrgR2-?usp=sharing).
-
-```bash
-from predict import KANPredictor, visualize
-
-kan  = KANPredictor("model.pth")
-mask = kan("test.jpg")
-visualize("test.jpg", mask)
-```
-***
 
 ## Installation
 
@@ -59,6 +47,19 @@ conda activate kan-ainet
 # Install dependencies
 pip install -r requirements.txt
 ```
+## Predict an image
+
+To download our KAN-IANet checkpoint, please access via this Google Drive [link](https://drive.google.com/drive/folders/1xZ8GLnZm7hB3CpDiflIf6HW_iQdrgR2-?usp=sharing).
+
+```bash
+from predict import KANPredictor, visualize
+
+kan  = KANPredictor("model.pth")
+mask = kan("test.jpg")
+visualize("test.jpg", mask)
+```
+***
+
 ## Training
 
 We used the same training dataset as ESPNet. The dataset can be accessed from the official ESPNet GitHub repository:  
@@ -100,7 +101,6 @@ The table above presents a comprehensive comparison between **KAN-AINet** and **
 <div align="center">
   <img src="assets/KAN_qualitative-cropped.svg", width="1000">
 </div>
-
 
 ## Inference on Unseen External Validation Dataset
 
