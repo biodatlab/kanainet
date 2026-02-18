@@ -30,21 +30,17 @@ KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-A
   KAN-based activation functions are directly visualizable, providing model interpretability 
   and insight into how the network adapts its feature transformations to polyp segmentation.
 
-***
-## Model Performance Comparison with ESPNet
+## Predict an image
 
-<p align="center">
-  <img src="assets/kan-ainet_table.png" width="750">
-</p>
+To download our KAN-IANet checkpoint, please access via this Google Drive [link](https://drive.google.com/drive/folders/1xZ8GLnZm7hB3CpDiflIf6HW_iQdrgR2-?usp=sharing).
 
-The table above presents a comprehensive comparison between **KAN-AINet** and **ESPNet** across seen and unseen datasets, including segmentation accuracy and boundary-based metrics.
+```bash
+from predict import KANPredictor, visualize
 
-### Example of KAN-AINet Segmentation Performance
-
-<div align="center">
-  <img src="assets/KAN_qualitative-cropped.svg", width="1000">
-</div>
-
+kan  = KANPredictor("model.pth")
+mask = kan("test.jpg")
+visualize("test.jpg", mask)
+```
 ***
 
 ## Installation
@@ -91,7 +87,20 @@ Optional Arguments
 # Output JSON file to store ablation + threshold tuning results
 ```
 
-To download our KAN-IANet checkpoint, KAN-IANet, and baseline model without KAN blocks, please access via this Google Drive [link](https://drive.google.com/drive/folders/1xZ8GLnZm7hB3CpDiflIf6HW_iQdrgR2-?usp=sharing).
+## Model Performance Comparison with ESPNet
+
+<p align="center">
+  <img src="assets/kan-ainet_table.png" width="750">
+</p>
+
+The table above presents a comprehensive comparison between **KAN-AINet** and **ESPNet** across seen and unseen datasets, including segmentation accuracy and boundary-based metrics.
+
+### Example of KAN-AINet Segmentation Performance
+
+<div align="center">
+  <img src="assets/KAN_qualitative-cropped.svg", width="1000">
+</div>
+
 
 ## Inference on Unseen External Validation Dataset
 
