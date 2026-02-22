@@ -52,7 +52,7 @@ pip install -r requirements.txt
 To download our KAN-IANet checkpoint, please access via this Huggingface link (will be provided after acceptance).
 
 ```bash
-from kan_acnet import KANACNet, visualize
+from models.kan_acnet import KANACNet, visualize
 
 kan  = KANACNet("model.pth")          # loads weights, eval mode, auto GPU/CPU
 mask = kan("test.jpg")                # numpy uint8 array
