@@ -59,6 +59,10 @@ mask = kan("test.jpg")                # numpy uint8 array
 visualize("test.jpg", mask)           # displays the result
 ```
 ***
+You can also run it from the terminal directly:
+```
+python kan_acnet.py model.pth test.jpg
+```
 
 ## Training
 
