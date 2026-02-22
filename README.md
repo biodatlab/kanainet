@@ -52,7 +52,7 @@ pip install -r requirements.txt
 To download our KAN-IANet checkpoint, please access via this Huggingface link (will be provided after acceptance).
 
 ```bash
-from predict import KANPredictor, visualize
+from call_model import KANPredictor, visualize
 
 kan  = KANPredictor("model.pth")
 mask = kan("test.jpg")
