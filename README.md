@@ -49,7 +49,7 @@ pip install -r requirements.txt
 ```
 ## Predict an image
 
-To download our KAN-IANet checkpoint, please access via this Google Drive [link](https://drive.google.com/drive/folders/1xZ8GLnZm7hB3CpDiflIf6HW_iQdrgR2-?usp=sharing).
+To download our KAN-IANet checkpoint, please access via this Huggingface link (will be provided after acceptance).
 
 ```bash
 from predict import KANPredictor, visualize
