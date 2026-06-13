@@ -49,7 +49,7 @@ pip install -r requirements.txt
 ```
 ## Predict an image
 
-To download our KAN-IANet checkpoint, please access via this Huggingface link ([download](https://huggingface.co/biodatlab/kan-ainet/tree/main)).
+To download our KAN-AINet checkpoint, please access via this Huggingface link ([download](https://huggingface.co/biodatlab/kan-ainet/tree/main)).
 
 ```bash
 from models.kan_acnet import KANACNet, visualize
