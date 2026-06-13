@@ -3,7 +3,7 @@
 </div>
 
 
-## KAN-AINet: Kolmogorov-Arnold Network with Adaptive Illumination Modulation for Generalizable Polyp Segmentation
+## KAN-AINet: Kolmogorov-Arnold Network with Adaptive Illumination Modulation for Generalizable Polyp Segmentation [MICCAI'26]
 
 
 KAN-AINet is a novel polyp segmentation architecture that leverages Kolmogorov-Arnold Networks (KAN) for adaptive illumination modulation and boundary-aware attention. Unlike standard neural networks that use fixed activation functions, KAN learns optimal per-task activation functions, enabling more expressive feature transformations for challenging colonoscopy images.
