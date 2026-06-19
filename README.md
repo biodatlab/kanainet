@@ -95,7 +95,7 @@ Optional Arguments
 ## Model Performance Comparison with ESPNet
 
 <p align="center">
-  <img src="assets/kan-ainet_table.png" width="750">
+  <img src="assets/table_miccai.pdf" width="750">
 </p>
 
 The table above presents a comprehensive comparison between **KAN-AINet** and **ESPNet** across seen and unseen datasets, including segmentation accuracy and boundary-based metrics.
